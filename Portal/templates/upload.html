@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+<h1>Welcome {{ user.first_name }} {{ user.last_name }}</h1>
+<div class="flex-container">
+    <div class="flex-items" id="qr-code">
+        <div class="jumbotron">
+            <h2>Your current Status!</h2>
+            {% if test_barcode %}
+            <h3>Test has been done {{ test_duration }} days ago</h3>
+            <img id='barcode' src="https://api.qrserver.com/v1/create-qr-code/?data=security-website/{{user.id}}" alt="QR Code is Not Available" title="QR Code" width="150" height="150"/>
+            {% else %}
+                <h2>No test result found on the database</h2>
+            {% endif %}
+            <h4>QR Code to scan.</h4>
+        </div>
+    </div>
+    <div class="flex-items" id="new-test">
+        <div class="jumbotron">
+            <h2>Update your test result!</h2>
+            <h4>Enter the test barcode in the field below.</h4>
+            <br>
+            <form action="{% url 'corona:upload_test' %}" method="post">
+                {% csrf_token %}
+                <label for="barcode">Test barcode number: </label>
+                <input type="text" name="barcode" id="barcode"/>
+                <br>
+                <br>
+                <input type="submit" class="btn btn-success center-block" value="Update">
+            </form>
+        </div>
+    </div>
+    
+ </div>
+{% endblock body_block %}

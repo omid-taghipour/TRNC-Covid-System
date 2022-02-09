@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block body_block %}
+<div class="jumbotron">
+
+    <h1>Login to the System</h1>
+    <p>Please fill the form below:</p>
+    <form action="{% url 'corona:user_login' %}" method="post">
+        {% csrf_token %}
+        <label for="std_id">Student ID: </label>
+        <input type="text" name="std_id" id="std_id"/>
+        <br>
+
+        <label for="password">Password: </label>
+        <input type="password" name="password" id="password"/>
+        <br>
+
+        <input type="submit" class="btn btn-success" value="Login">
+    </form>
+
+</div>
+{% endblock body_block %}
