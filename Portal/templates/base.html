@@ -1,64 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <title>EMU Corona  Test System</title>
-    <style>
-      .flex-container {
-        display: flex;
-        flex-direction: row-reverse;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <title>EMU Corona Test System</title>
+  <style>
+    .qrcode-div {
+      margin: auto;
+      width: 50%;
+      padding: 10px;
+    }
+
+    .flex-container {
+      display: flex;
+      flex-direction: row-reverse;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      align-content: center;
+    }
+
+    .flex-items:nth-child(1) {
+      display: block;
+      flex-grow: 0;
+      flex-shrink: 1;
+      flex-basis: auto;
+      align-self: auto;
+      order: 0;
+    }
+
+    .flex-items:nth-child(2) {
+      display: block;
+      flex-grow: 0;
+      flex-shrink: 1;
+      flex-basis: auto;
+      align-self: auto;
+      order: 0;
+    }
+
+    /* Styles for Spinner */
+    @keyframes ldio-vihtktdj7bs {
+      0% {
+        opacity: 1
       }
-      
-      .flex-items:nth-child(1) {
-        display: block;
-        flex-grow: 0;
-        flex-shrink: 1;
-        flex-basis: auto;
-        align-self: auto;
-        order: 0;
+
+      100% {
+        opacity: 0
       }
-      
-      .flex-items:nth-child(2) {
-        display: block;
-        flex-grow: 0;
-        flex-shrink: 1;
-        flex-basis: auto;
-        align-self: auto;
-        order: 0;
-      }
-    </style>
+    }
+
+    .ldio-vihtktdj7bs div {
+      left: 107.415px;
+      top: 56.595px;
+      position: absolute;
+      animation: ldio-vihtktdj7bs linear 2.272727272727273s infinite;
+      background: #df1317;
+      width: 16.17px;
+      height: 39.27px;
+      border-radius: 8.085px / 18.0642px;
+      transform-origin: 8.085px 58.905px;
+    }
+
+    .ldio-vihtktdj7bs div:nth-child(1) {
+      transform: rotate(0deg);
+      animation-delay: -2.066115702479339s;
+      background: #df1317;
+    }
+
+    .ldio-vihtktdj7bs div:nth-child(2) {
+      transform: rotate(32.72727272727273deg);
+      animation-delay: -1.859504132231405s;
+      background: #e4934b;
+    }
+
+    .ldio-vihtktdj7bs div:nth-child(3) {
+      transform: rotate(65.45454545454545deg);
+      animation-delay: -1.6528925619834711s;
+      background: #e2bb8b;
+    }
+
+    .ldio-vihtktdj7bs div:nth-child(4) {
+      transform: rotate(98.18181818181819deg);
+      animation-delay: -1.4462809917355373s;
+      background: #e1e7e7;
+    }
+
+    .ldio-vihtktdj7bs div:nth-child(5) {
+      transform: rotate(130.9090909090909deg);
+      animation-delay: -1.2396694214876034s;
+      background: #91bcc6;
+    }
+
+    .ldio-vihtktdj7bs div:nth-child(6) {
+      transform: rotate(163.63636363636363deg);
+      animation-delay: -1.0330578512396695s;
+      background: #07abcc;
+    }
+
+    .ldio-vihtktdj7bs div:nth-child(7) {
+      transform: rotate(196.36363636363637deg);
+      animation-delay: -0.8264462809917356s;
+      background: #0a69aa;
+    }
+
+    .ldio-vihtktdj7bs div:nth-child(8) {
+      transform: rotate(229.0909090909091deg);
+      animation-delay: -0.6198347107438017s;
+      background: #194645;
+    }
+
+    .ldio-vihtktdj7bs div:nth-child(9) {
+      transform: rotate(261.8181818181818deg);
+      animation-delay: -0.4132231404958678s;
+      background: #df1317;
+    }
+
+    .ldio-vihtktdj7bs div:nth-child(10) {
+      transform: rotate(294.54545454545456deg);
+      animation-delay: -0.2066115702479339s;
+      background: #e4934b;
+    }
+
+    .ldio-vihtktdj7bs div:nth-child(11) {
+      transform: rotate(327.27272727272725deg);
+      animation-delay: 0s;
+      background: #e2bb8b;
+    }
+
+    .loadingio-spinner-spinner-a0um3d3n6rl {
+      width: 231px;
+      height: 231px;
+      display: inline-block;
+      overflow: hidden;
+      background: none;
+    }
+
+    .ldio-vihtktdj7bs {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform: translateZ(0) scale(1);
+      backface-visibility: hidden;
+      transform-origin: 0 0;
+      /* see note above */
+    }
+
+    .ldio-vihtktdj7bs div {
+      box-sizing: content-box;
+    }
+  </style>
 </head>
+
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="https://emu.edu.tr">Eastern Mediterranean University</a>
-          </div>
-          <ul class="nav navbar-nav">
-            <li><a href="{% url 'corona:index' %}">Home</a></li>
-            <li><a href="{% url 'admin:index' %}">Admin</a></li>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="https://emu.edu.tr">Eastern Mediterranean University</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="{% url 'corona:index' %}">Home</a></li>
+        <li><a href="{% url 'admin:index' %}">Admin</a></li>
 
-            {% if user.is_authenticated %}
-            <li><a href="{% url 'corona:upload_test' %}">Covid-19 test</a></li>
-            <li><a href="{% url 'corona:user_logout' %}">Logout</a></li>
-            {% else %}
-            <li><a href="{% url 'corona:user_login' %}">Login</a></li>
-            {% endif %}
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'corona:upload_test' %}">Covid-19 test</a></li>
+        <li><a href="{% url 'corona:user_logout' %}">Logout</a></li>
+        {% else %}
+        <li><a href="{% url 'corona:user_login' %}">Login</a></li>
+        {% endif %}
 
-          </ul>
-        </div>
-      </nav>
-    <div class="container">
-        {% block body_block %}
-          
-        {% endblock body_block %}
+      </ul>
     </div>
+  </nav>
+  {% include "messages.html" %}
+  <div class="container">
+
+    {% block body_block %}
+
+    {% endblock body_block %}
+  </div>
+  <script>
+    setTimeout(function () {
+      if ($('#msg').length > 0) {
+        $('#msg').remove();
+      }
+    }, 3000);
+  </script>
 </body>
+
 </html>

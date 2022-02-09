@@ -13,6 +13,8 @@ from selenium.webdriver.chrome.options import Options
 from django.contrib.auth.models import User
 from .models import Profile
 from datetime import datetime
+from django.contrib import messages
+
 
 
 # Create your views here.
@@ -40,7 +42,7 @@ def upload_test(request):
         # Finding and Clicking on the "Test soncunu ara" button
         test_soncunu_ara = web.find_element(By.XPATH, '//*[@id="ara"]')
         test_soncunu_ara.click()
-
+        context = {'test_result':None}
         try:
             time.sleep(1)
             # Finding and Entering Passport or Kimlik to the related field
@@ -48,6 +50,7 @@ def upload_test(request):
             passport_input.send_keys(profile_obj.passport)
         except (NoSuchElementException, ElementNotInteractableException):
             print("Barcode invalid")
+            messages.error(request, 'The entered barcode is not valid!')
 
         else:
             time.sleep(2)
@@ -62,9 +65,11 @@ def upload_test(request):
 
             except (ElementNotInteractableException, NoSuchElementException):
                 print("Test did not evaluate successfully.")
+                messages.error(request, 'Your test is not valid!')
 
             except:
                 print("An ERROR OCCURRED. TRY AGAIN LATER")
+                messages.warning(request, 'Something went wrong. Please try again!')
 
             else:
                 # What to do if the test founded on the system
@@ -87,11 +92,10 @@ def upload_test(request):
                                    .update(barcode=context['barcode'], 
                                            result=context['result'], 
                                            date_time=context['date_time']))
+                messages.success(request, 'Your test result has been updated successfully.')
 
             finally:
                 web.quit()
-
-            print("Test is OKAY!")
 
         return render(request, 'index.html', context)
     else:
@@ -107,7 +111,7 @@ def upload_test(request):
             context = {
                     'test_barcode':tested_student[0].barcode,
                     'test_result': tested_student[0].result, 
-                    'test_date_':tested_student[0].date_time,
+                    'test_date_time':tested_student[0].date_time,
                     'test_duration':df,
                     }
         else:

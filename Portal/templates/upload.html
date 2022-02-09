@@ -7,12 +7,26 @@
         <div class="jumbotron">
             <h2>Your current Status!</h2>
             {% if test_barcode %}
-            <h3>Test has been done {{ test_duration }} days ago</h3>
-            <img id='barcode' src="https://api.qrserver.com/v1/create-qr-code/?data=security-website/{{user.id}}" alt="QR Code is Not Available" title="QR Code" width="150" height="150"/>
-            {% else %}
+
+            <h3>Test has been done {{ test_duration }} days ago</h4>
+                <p>Test Barcode: {{ test_barcode }}</p>
+                <p>Test Result: {{ test_result }}</p>
+
+                <p>Test Date and Time: {{ test_date_time }}</p>
+
+
+                <hr>
+                <div class="qrcode-div">
+                    <img id='barcode'
+                        src="https://api.qrserver.com/v1/create-qr-code/?data=security-website/{{user.id}}"
+                        alt="QR Code is Corrupted" title="QR Code" width="150" height="150" />
+                    <h4>QR Code to scan.</h4>
+                </div>
+
+                {% else %}
                 <h2>No test result found on the database</h2>
-            {% endif %}
-            <h4>QR Code to scan.</h4>
+                {% endif %}
+
         </div>
     </div>
     <div class="flex-items" id="new-test">
@@ -23,13 +37,36 @@
             <form action="{% url 'corona:upload_test' %}" method="post">
                 {% csrf_token %}
                 <label for="barcode">Test barcode number: </label>
-                <input type="text" name="barcode" id="barcode"/>
+                <input type="text" name="barcode" id="barcode" />
                 <br>
                 <br>
-                <input type="submit" class="btn btn-success center-block" value="Update">
+                <input type="submit" id="upload-btn" class="btn btn-success center-block" value="Update">
             </form>
+            <div class="loadingio-spinner-spinner-a0um3d3n6rl" id="spinner">
+                <div class="ldio-vihtktdj7bs">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <h3>Note:</h3>
+            <p>Please make sure your <b>PASSPORT</b> info is <b>UPDATED</b></p>
         </div>
     </div>
-    
- </div>
+</div>
+<script>
+    const sbt = document.getElementById('upload-btn');
+    document.getElementById('spinner').style.display = 'none';
+    sbt.addEventListener('click', function () {
+        document.getElementById('spinner').style.display = 'block';
+    });
+</script>
 {% endblock body_block %}

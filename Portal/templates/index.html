@@ -1,8 +1,20 @@
 {% extends 'base.html' %}
 {% block body_block %}
+{% if user.is_authenticated %}
+<div class="jumbotron">
+    <h1>Welcome to EMU Covid-19 Test Evaluation System</h1>
+    <p>To update your test result, check the <b><a href="{% url 'corona:upload_test' %}">Update Test Result</a></b> page.</p>
+<hr>
+    <h2>Your personal QR Code is shown below. </h2>
+    <img id='barcode' src="https://api.qrserver.com/v1/create-qr-code/?data=security-website/{{user.id}}" alt="QR Code is Not Available" title="QR Code" width="150" height="150"/>
+
+</div>
+{% else %}
 <div class="jumbotron">
     <h1>Welcome to EMU Covid-19 Test Evaluation System</h1>
     <p>To start Evaluation and Upload process, <b><a href="{% url 'corona:user_login' %}">LOGIN</a></b> to the system</p>
 </div>
+{% endif %}
+
 {% endblock body_block %}
 
