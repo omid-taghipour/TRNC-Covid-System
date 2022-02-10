@@ -8,11 +8,13 @@
             <h2>Your current Status!</h2>
             {% if test_barcode %}
 
-            <h3>Test has been done {{ test_duration }} days ago</h4>
-                <p>Test Barcode: {{ test_barcode }}</p>
-                <p>Test Result: {{ test_result }}</p>
+            <h3>Test has been done {{ test_duration }} days ago</h3>
+            <hr>
+            <h2>Test Information:</h2>
+                <p>Barcode: {{ test_barcode }}</p>
+                <p>Result: {{ test_result }}</p>
 
-                <p>Test Date and Time: {{ test_date_time }}</p>
+                <p>Date and Time: {{ test_date_time }}</p>
 
 
                 <hr>
@@ -24,7 +26,7 @@
                 </div>
 
                 {% else %}
-                <h2>No test result found on the database</h2>
+                <h3 class="warning-msg">No test information found!</h3>
                 {% endif %}
 
         </div>

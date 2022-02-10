@@ -43,6 +43,7 @@ def upload_test(request):
         test_soncunu_ara = web.find_element(By.XPATH, '//*[@id="ara"]')
         test_soncunu_ara.click()
         context = {'test_result':None}
+        
         try:
             time.sleep(1)
             # Finding and Entering Passport or Kimlik to the related field
