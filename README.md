@@ -1,9 +1,21 @@
 # Covid-19 test upload system
 
-This system has been proposed to Eastern Mediterranean University for evaluation of the Covid-19 test. The system is working only for those who had done a Covid-19 Test at Turkish Republc of Northern Cyprus.
+This system has been created using Django and Web Scraping technology. It is specially designed for Corona tests which are done in Turkish Republic of Northern Cyprus.
 
-# How the system works?
-The system requires users to be logged in. At the database of the system Passport number/National ID is saved. This data is required for the evaluation process. After logging in the user has the option to upload a new test. 
+# How to use the system
+The system is developed using Django version 4.0.2. There are some more packages required to be installed on your system which are listed below:
+  1. Selenium
+  2. Webdriver-manager
+  3. Pillow
 
-At upload a new test page, user can see the latest test information and another section for uploading the barcode of the new test. When the user enters the barcode and clicks on the submit button, the process of evaluation is going to start and related message is going to be displayed to the user.
+After installing those libraries create a superuser in Django using "python manage.py createsuperuser". Provide the username, email and password for the admin account. 
+
+Then by running the project using "python manage.py runserver", you can open the project on your web browser. From the header select admin, then fill the login form using infomation you have provided. 
+
+In admin panel, find the Profile table. Create a new Profile using "std1" user or you may create another user. The profile requires the passport or National ID. It is important to be correct because it will be used in test result evaluation process.
+
+After creating the profile account, you should log out from admin account and go back to the user login page. Enter the username ("std1" if you have not created a new user with password of "std1password".) By logging in "Covid-19 Test" tab will appear. In there you can insert the barcode number of the test and within a few seconds it will give you the results back.
+
+# Limits
+As mentioned this system is valid only for tests that had been done in TRNC.
 
