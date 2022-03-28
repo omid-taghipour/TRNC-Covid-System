@@ -89,10 +89,21 @@ def upload_test(request):
                     "result": test_result,
                     "date_time": datetime.strptime(test_date_time, '%d/%m/%Y %H:%M'),
                 }
-                (Covid_Test.objects.filter(student__student__id=request.user.id)
-                                   .update(barcode=context['barcode'], 
-                                           result=context['result'], 
-                                           date_time=context['date_time']))
+                
+                num_tests = Covid_Test.objects.filter(student__student__id=request.user.id).count()
+                if num_tests != 0:
+                    (Covid_Test.objects.filter(student__student__id=request.user.id)
+                                    .update(barcode=context['barcode'], 
+                                            result=context['result'], 
+                                            date_time=context['date_time']))
+                    messages.success(request, 'Your test result has been updated successfully.')
+
+                else:
+                    Covid_Test.objects.create(student=Profile.objects.filter(student__id = request.user.id)[0],
+                                              result=context['result'],
+                                              barcode=context['barcode'],
+                                              date_time=context['date_time'])
+                
                 messages.success(request, 'Your test result has been updated successfully.')
 
             finally:
