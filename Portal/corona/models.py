@@ -1,11 +1,9 @@
-from pyexpat import model
 from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
 class Profile(models.Model):
     student = models.OneToOneField(User, related_name='student', on_delete=models.CASCADE)
-    image = models.ImageField(upload_to="student_pics")
     passport = models.CharField(max_length=15)
 
     def __str__(self):
