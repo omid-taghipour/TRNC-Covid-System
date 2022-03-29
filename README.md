@@ -26,6 +26,6 @@ exit()
 
 Then copy the output of 'print(get_random_secret_key())' and paste it in Portal->settings.py as the value of SECRET_KEY variable.
 
-#Limits
+# Limits
 As mentioned this system is valid only for tests that had been done in TRNC.
 
