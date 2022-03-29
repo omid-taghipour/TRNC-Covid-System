@@ -23,7 +23,15 @@ MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-f%56^7%032=h=oh6zk@mq8n95r#rtgtr56y4j8v3szh5z&)jpo'
+# You should generate yout own secret key by using the following code and replace the content in the quotation.
+# Use 'python manage.py shell' in your terminal
+# Write the following commands sequentialy:
+# from django.core.management.utils import get_random_secret_key
+# print(get_random_secret_key())
+# exit()
+
+# Copy the content displayed by 'print(get_random_secret_key())' and replace the value of SECRET_KEY with it.
+SECRET_KEY = '--Generate-Your-Own-Secret-Key--'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
