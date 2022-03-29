@@ -16,6 +16,16 @@ In admin panel, find the Profile table. Create a new Profile using "std1" user o
 
 After creating the profile account, you should log out from admin account and go back to the user login page. Enter the username ("std1" if you have not created a new user with password of "std1password".) By logging in "Covid-19 Test" tab will appear. In there you can insert the barcode number of the test and within a few seconds it will give you the results back.
 
-# Limits
+# How to generate the Secret Key
+You should generate yout own secret key by using the following code and replace the content in the quotation.
+Use 'python manage.py shell' in your terminal
+Write the following commands sequentialy:
+from django.core.management.utils import get_random_secret_key
+print(get_random_secret_key())
+exit()
+
+Then copy the output of 'print(get_random_secret_key())' and paste it in Portal->settings.py as the value of SECRET_KEY variable.
+
+#Limits
 As mentioned this system is valid only for tests that had been done in TRNC.
 
